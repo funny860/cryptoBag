@@ -262,3 +262,6 @@ nav ul li a:hover {
   border-radius: 0;
 }
 /*# sourceMappingURL=main.css.map */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
