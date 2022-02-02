@@ -261,7 +261,17 @@ nav ul li a:hover {
   backdrop-filter: blur(4px);
   border-radius: 0;
 }
+.coin-data .col-md-5 {
+  margin-top: 2em;
+  background-color: white;
+  color: #112031;
+}
 /*# sourceMappingURL=main.css.map */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

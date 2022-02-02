@@ -1,0 +1,71 @@
+<!-- <li class="list-group-item" *ngFor="let coin of coinsData">
+  <h3>{{ coin.id }}</h3>
+  <p>{{ coin.symbol | uppercase }}</p>
+</li> -->
+<!-- <div class="row justify-content-around coin-data">
+  <div class="col-md-5" *ngFor="let coin of coinsData"> -->
+<div class="row text-center justify-content-center">
+  <mat-card class="col-md-2" *ngFor="let coin of coinsData" style="margin: 1em">
+    <mat-card-header style="display: block">
+      <mat-card-title>{{ coin.name }}</mat-card-title>
+      <mat-card-subtitle>{{ coin.symbol | uppercase }}</mat-card-subtitle>
+    </mat-card-header>
+    <hr />
+    <img
+      mat-card-image
+      src="{{ coin.image }}"
+      style="height: 10em; width: auto"
+    />
+    <mat-card-content
+      ><h2>
+        &#x20b9;
+        <span id="{{ coin.symbol }}-price">{{ coin.current_price }}</span>
+      </h2></mat-card-content
+    >
+    <mat-card-actions>
+      <button mat-raised-button class="btn-success">BUY</button>
+      <button mat-raised-button class="btn-danger">SELL</button>
+    </mat-card-actions>
+    <!-- <mat-card-footer>
+      <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+    </mat-card-footer> -->
+  </mat-card>
+</div>
+<!-- <div class="row justify-content-around coin-data">
+      <div class="col-2 d-flex text-center align-items-center">
+        <a href="#"
+          ><img id="{{ coin.symbol }}-image" src="{{ coin.image }}" width="60%"
+        /></a>
+      </div>
+      <div class="col-5">
+        <h4 id="${symbol}">{{ coin.name }} ({{ coin.symbol | uppercase }} )</h4>
+        <h2>
+          &#x20b9;
+          <span id="{{ coin.symbol }}-price">{{ coin.current_price }}</span>
+        </h2>
+      </div>
+      <div class="col-5 d-flex align-items-center justify-content-around">
+        <button
+          class="btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          mat-raised-button
+          style="width: 40%"
+        >
+          BUY
+        </button>
+        <button
+          class="btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          mat-raised-button
+          style="width: 40%"
+        >
+          SELL
+        </button>
+      </div>
+    </div> -->
+<!-- </div>
+</div> -->
+
+<mat-spinner *ngIf="isLoading" class="text-center" color="warn"></mat-spinner>
