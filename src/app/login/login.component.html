@@ -1,1 +1,74 @@
-<p>login works!</p>
+<!-- <form (submit)="loginUser($event)">
+  <input type="text" placeholder="Username" />
+  <br />
+  <input type="password" placeholder="Password" />
+  <br />
+  <input type="submit" value="Submit" />
+</form> -->
+<style>
+  .example-form {
+    min-width: 400px;
+    max-width: 1250px;
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+</style>
+<div class="container align-items-center text-center">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div style="padding: 2em; background-color: blueviolet">
+      <mat-card>
+        <form
+          class="example-form example-full-width"
+          (submit)="loginUser($event)"
+        >
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              [formControl]="emailFormControl"
+              placeholder="Ex. pat@example.com"
+              id="username"
+            />
+            <mat-error
+              *ngIf="
+                emailFormControl.hasError('email') &&
+                !emailFormControl.hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              [formControl]="passwordFormControl"
+              placeholder="Password"
+              id="password"
+            />
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            class="example-full-width"
+          >
+            Login
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

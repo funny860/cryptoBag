@@ -4,32 +4,57 @@
 </li> -->
 <!-- <div class="row justify-content-around coin-data">
   <div class="col-md-5" *ngFor="let coin of coinsData"> -->
-<div class="row text-center justify-content-center">
-  <mat-card class="col-md-2" *ngFor="let coin of coinsData" style="margin: 1em">
-    <mat-card-header style="display: block">
-      <mat-card-title>{{ coin.name }}</mat-card-title>
-      <mat-card-subtitle>{{ coin.symbol | uppercase }}</mat-card-subtitle>
-    </mat-card-header>
-    <hr />
-    <img
-      mat-card-image
-      src="{{ coin.image }}"
-      style="height: 10em; width: auto"
-    />
-    <mat-card-content
-      ><h2>
-        &#x20b9;
-        <span id="{{ coin.symbol }}-price">{{ coin.current_price }}</span>
-      </h2></mat-card-content
+<div class="row text-center align-items-center">
+  <input
+    class="form-control"
+    type="text"
+    name="Search Coin"
+    [(ngModel)]="coin_name"
+    placeholder="Seacrh Coin"
+    style="display: inline-block"
+  />
+</div>
+<div class="container text-center justify-content-center" style="padding: 1em">
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="space-around strech"
+    fxLayoutGap="1em grid"
+  >
+    <div
+      fxFlex="20%"
+      fxFlex.xs="70%"
+      fxFlex.sm="33%"
+      fxFlex.md="25%"
+      *ngFor="let coin of coinsData | filter: coin_name"
     >
-    <mat-card-actions>
-      <button mat-raised-button class="btn-success">BUY</button>
-      <button mat-raised-button class="btn-danger">SELL</button>
-    </mat-card-actions>
-    <!-- <mat-card-footer>
-      <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
-    </mat-card-footer> -->
-  </mat-card>
+      <mat-card>
+        <mat-card-header style="display: block">
+          <mat-card-title>{{ coin.name }}</mat-card-title>
+          <mat-card-subtitle>{{ coin.symbol | uppercase }}</mat-card-subtitle>
+        </mat-card-header>
+        <hr />
+        <img
+          mat-card-image
+          src="{{ coin.image }}"
+          style="height: 7.5em; width: auto"
+        />
+        <mat-card-content
+          ><h2>
+            &#x20b9;
+            <span id="{{ coin.symbol }}-price">{{ coin.current_price }}</span>
+          </h2></mat-card-content
+        >
+        <mat-card-actions>
+          <button mat-raised-button class="btn-success">BUY</button>
+          <button mat-raised-button class="btn-danger">SELL</button>
+        </mat-card-actions>
+      </mat-card>
+      <!-- <mat-card-footer>
+          <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+        </mat-card-footer> -->
+      <!-- </mat-card> -->
+    </div>
+  </div>
 </div>
 <!-- <div class="row justify-content-around coin-data">
       <div class="col-2 d-flex text-center align-items-center">
@@ -67,5 +92,4 @@
     </div> -->
 <!-- </div>
 </div> -->
-
 <mat-spinner *ngIf="isLoading" class="text-center" color="warn"></mat-spinner>
